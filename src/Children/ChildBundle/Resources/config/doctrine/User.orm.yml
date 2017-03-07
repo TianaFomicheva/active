@@ -1,0 +1,24 @@
+Children\ChildBundle\Entity\User:
+    type: entity
+    table: null
+    repositoryClass: Children\ChildBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+               { strategy: AUTO }
+            lifecycleCallbacks: {  } 
+                
+    fields: 
+        username: 
+            type: string 
+            length: 255 
+            unique: true 
+        password: 
+             type: string 
+             length: 255       
+        salt: 
+             type: string 
+             length: 255      
+    

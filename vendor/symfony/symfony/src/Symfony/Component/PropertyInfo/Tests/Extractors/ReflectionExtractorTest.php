@@ -11,13 +11,14 @@
 
 namespace Symfony\Component\PropertyInfo\Tests\Extractor;
 
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\PropertyInfo\Type;
 
 /**
  * @author Kévin Dunglas <dunglas@gmail.com>
  */
-class ReflectionExtractorTest extends \PHPUnit_Framework_TestCase
+class ReflectionExtractorTest extends TestCase
 {
     /**
      * @var ReflectionExtractor
@@ -72,6 +73,8 @@ class ReflectionExtractorTest extends \PHPUnit_Framework_TestCase
             array('e', null),
             array('f', array(new Type(Type::BUILTIN_TYPE_ARRAY, false, null, true, new Type(Type::BUILTIN_TYPE_INT), new Type(Type::BUILTIN_TYPE_OBJECT, false, 'DateTime')))),
             array('donotexist', null),
+            array('staticGetter', null),
+            array('staticSetter', null),
         );
     }
 

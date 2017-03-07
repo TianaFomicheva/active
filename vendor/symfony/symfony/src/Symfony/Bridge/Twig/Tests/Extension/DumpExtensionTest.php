@@ -11,11 +11,12 @@
 
 namespace Symfony\Bridge\Twig\Tests\Extension;
 
+use PHPUnit\Framework\TestCase;
 use Symfony\Bridge\Twig\Extension\DumpExtension;
 use Symfony\Component\VarDumper\VarDumper;
 use Symfony\Component\VarDumper\Cloner\VarCloner;
 
-class DumpExtensionTest extends \PHPUnit_Framework_TestCase
+class DumpExtensionTest extends TestCase
 {
     /**
      * @dataProvider getDumpTags
@@ -32,7 +33,7 @@ class DumpExtensionTest extends \PHPUnit_Framework_TestCase
 
         $dumped = null;
         $exception = null;
-        $prevDumper = VarDumper::setHandler(function ($var) use (&$dumped) {$dumped = $var;});
+        $prevDumper = VarDumper::setHandler(function ($var) use (&$dumped) { $dumped = $var; });
 
         try {
             $this->assertEquals($expectedOutput, $twig->render('template'));

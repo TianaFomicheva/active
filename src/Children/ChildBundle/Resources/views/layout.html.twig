@@ -1,0 +1,37 @@
+{# src/Children/ChildBundle/Resources/views/layout.html.twig #}
+{% extends '::base.html.twig' %}
+
+ 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/Children/css/Children.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block sidebar %}
+    Sidebar content
+{% endblock %}
+
+{% block body %}
+    <div id="container">
+        <header class="clearfix">
+            <h1>
+                symfony2 Учебник
+            </h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">
+                            О сайте
+                        </a>
+                    </li>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li>
+                            <a href="{{ path('_security_logout') }}">
+                                Выход
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </header>
+{% endblock %}

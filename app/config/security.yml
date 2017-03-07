@@ -1,20 +1,40 @@
-# To get started with security, check out the documentation:
-# http://symfony.com/doc/current/security.html
 security:
-
+    encoders:
+        Children\ChildBundle\Entity\User:
+            algorithm: sha512
+            encode-as-base64: true
+            iterations: 10
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+        
     providers:
+        main:
+            entity: { class: Children\ChildBundle\Entity\User, property: username }
         in_memory:
-            memory: ~
+            memory: 
+                users:
+                    user: {password: john.doe, roles: ['ROLE_USER' ]}
+                    admin: {password: admin, roles: [' ROLE_ADMIN' ]}
+
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
-        dev:
+        main:
+            pattern: /.*
+            form_login:
+                check_path: /login_check
+                login_path: /login
+            logout: true
+            security: true
+            anonymous: true
+
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+            
+    access_control:
+        - { path: /admin/.*, role: ROLE_ADMIN }
+        - { path: /.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        
 
-        main:
-            anonymous: ~
             # activate different ways to authenticate
 
             # http_basic: ~
