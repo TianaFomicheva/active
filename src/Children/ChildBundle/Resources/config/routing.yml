@@ -15,4 +15,4 @@ admin_home:
 
 children_child_homepage:
     path:     /
-    defaults: { _controller: ChildrenChildBundle:Default:index }
+    defaults: { _controller:ChildBundle:Default:index }

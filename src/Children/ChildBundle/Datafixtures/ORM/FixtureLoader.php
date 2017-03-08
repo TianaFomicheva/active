@@ -18,6 +18,9 @@ class FixtureLoader implements FixtureInterface
         $manager->persist($role);
         // СЃРѕР·РґР°РЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
         $user = new User();
+        $user->setFirstName('John');
+        $user->setLastName('Doe');
+        $user->setEmail('john@example.com');
         $user->setUsername('john.doe');
         $user->setPassword('admin');     
         $user->setSalt(md5(time()));

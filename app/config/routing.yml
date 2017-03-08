@@ -2,3 +2,4 @@ children_child:
     resource: "@ChildrenChildBundle/Resources/config/routing.yml"
     prefix:   /
 
+
