@@ -41,18 +41,19 @@ class User implements UserInterface
      */
     protected $salt;
  
-    /**
+   /**
      * @ORM\ManyToMany(targetEntity="Role")
-     * @ORM\JoinTable(name="role",
-     *     joinColumns={@ORM\JoinColumn(name="id", referencedColumnName="id")},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="name", referencedColumnName="id")}
+     * @ORM\JoinTable(name="user_role",
+     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="role_id", referencedColumnName="id")}
      * )
      *
      * @var ArrayCollection $userRoles
      */
     protected $userRoles;
+    
  
-         public function getId()
+    public function getId()
     {
         return $this->id;
     }
@@ -124,15 +125,15 @@ class User implements UserInterface
      */
     public function getUserRoles()
     {
-        return $this->userRoles;
-    }
+      return  $this->userRoles;
+ }
  
     /**
      * Конструктор класса User
      */
     public function __construct()
     {
-
+        $this->posts = new ArrayCollection();
         $this->userRoles = new ArrayCollection();
         $this->createdAt = new \DateTime();
     }
@@ -144,17 +145,22 @@ class User implements UserInterface
     {
  
     }
+    
  
     /**
      * Геттер для массива ролей.
      * 
      * @return array An array of Role objects
      */
-    public function getRoles()
-    {
-        return $this->getUserRoles()->toArray();;
+    public function getRoles()           
+    { 
+        $ret = array();
+        foreach ($this->userRoles as $role){
+            $ret[] = $role->getName();    
+        }
+        return $ret;
     }
- 
+
     /**
      * Сравнивает пользователя с другим пользователем и определяет
      * один и тот же ли это человек.
@@ -168,5 +174,7 @@ class User implements UserInterface
     }
  
     // ...
- 
+
+
+
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9c900e27e9fa27ef29bb780a46f69efc",
+    "content-hash": "db39343ece4ba3caa6d0f91770bc147c",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -341,7 +341,7 @@
             "keywords": [
                 "database"
             ],
-            "time": "2017-02-23T18:10:32+00:00"
+            "time": "2017-02-23 18:10:32"
         },
         {
             "name": "doctrine/dbal",
@@ -1274,16 +1274,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v4.0.1",
+            "version": "v4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "f2ce0035fc512287978510ca1740cd111d60f89f"
+                "reference": "56bded66985e22f6eac2cf86735fd21c625bff2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/f2ce0035fc512287978510ca1740cd111d60f89f",
-                "reference": "f2ce0035fc512287978510ca1740cd111d60f89f",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/56bded66985e22f6eac2cf86735fd21c625bff2f",
+                "reference": "56bded66985e22f6eac2cf86735fd21c625bff2f",
                 "shasum": ""
             },
             "require": {
@@ -1314,7 +1314,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2017-02-18T17:53:25+00:00"
+            "time": "2017-03-09T17:33:20+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2379,10 +2379,10 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.1.2"
+        "php": ">=7.1"
     },
     "platform-dev": [],
     "platform-overrides": {
-        "php": "7.1.2"
+        "php": "7.1"
     }
 }

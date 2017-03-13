@@ -1,19 +1,31 @@
 Children\ChildBundle\Entity\Role:
     type: entity
-    table: null
-    repositoryClass: Children\ChildBundle\Repository\RoleRepository
+    table: role
     id:
         id:
             type: integer
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
             id: true
             generator:
-               { strategy: AUTO }
-               
-    fields: 
-      
-        name: 
-            type: string 
-            length: 255       
-                
-  
-    
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            scale: 0
+            length: 255
+            unique: false
+            nullable: false
+            precision: 0
+        createdAt:
+            type: datetime
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            column: created_at
+    lifecycleCallbacks: {  }

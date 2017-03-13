@@ -18,7 +18,7 @@ class User implements UserInterface
      *
      * @var integer $id
      */
-    protected $id;
+//    protected $id;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -41,18 +41,19 @@ class User implements UserInterface
      */
     protected $salt;
  
-    /**
+   /**
      * @ORM\ManyToMany(targetEntity="Role")
-     * @ORM\JoinTable(name="role",
-     *     joinColumns={@ORM\JoinColumn(name="id", referencedColumnName="id")},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="name", referencedColumnName="id")}
+     * @ORM\JoinTable(name="user_role",
+     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="role_id", referencedColumnName="id")}
      * )
      *
      * @var ArrayCollection $userRoles
      */
     protected $userRoles;
+    
  
-         public function getId()
+    public function getId()
     {
         return $this->id;
     }
@@ -124,8 +125,8 @@ class User implements UserInterface
      */
     public function getUserRoles()
     {
-        return $this->userRoles;
-    }
+      return  $this->userRoles;
+ }
  
     /**
      * Конструктор класса User
@@ -144,6 +145,7 @@ class User implements UserInterface
     {
  
     }
+    
  
     /**
      * Геттер для массива ролей.
@@ -152,9 +154,14 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-        return $this->getUserRoles()->toArray();
+            
+ //    return this->userRoles->toArray();
     }
  
+ //   public function getRoles()
+ //   {
+  //       return array('ROLE_ADMIN');
+  //  }
     /**
      * Сравнивает пользователя с другим пользователем и определяет
      * один и тот же ли это человек.
@@ -169,4 +176,10 @@ class User implements UserInterface
  
     // ...
  
+    /**
+     * @var integer
+     */
+    private $id;
+
+
 }

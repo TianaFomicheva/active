@@ -5,6 +5,7 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Children\ChildBundle\Entity\User;
 use Children\ChildBundle\Entity\Role;
 use Doctrine\Common\Persistence\ObjectManager;
+use Paston\VerBundle\Entity\TimeZone;
 use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
  
 class FixtureLoader implements FixtureInterface
@@ -18,9 +19,7 @@ class FixtureLoader implements FixtureInterface
         $manager->persist($role);
         // СЃРѕР·РґР°РЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
         $user = new User();
-        $user->setFirstName('John');
-        $user->setLastName('Doe');
-        $user->setEmail('john@example.com');
+
         $user->setUsername('john.doe');
         $user->setPassword('admin');     
         $user->setSalt(md5(time()));
@@ -31,9 +30,12 @@ class FixtureLoader implements FixtureInterface
         $password = $encoder->encodePassword('admin', $user->getSalt());
         $user->setPassword($password);
  
- //       $user->getUserRoles()->add($role);
+        $user->getUserRoles()->add($role);
  
         $manager->persist($user);
+        $manager->flush(); 
+
+        
 
  
  

@@ -8,7 +8,7 @@
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "require": {
-        "php": ">=7.1.2",
+        "php": ">=7.1",
         "symfony/symfony": "2.8.*",
         "doctrine/orm": "^2.4.8",
         "doctrine/doctrine-bundle": "~1.4",
@@ -43,7 +43,7 @@
     "config": {
         "bin-dir": "bin",
         "platform": {
-            "php": "7.1.2"
+            "php": "7.1"
         }
     },
     "extra": {
@@ -58,3 +58,4 @@
         }
     }
 }
+
