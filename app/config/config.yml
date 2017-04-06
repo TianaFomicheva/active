@@ -29,6 +29,7 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
+    translator: { fallbacks: ["%locale%"] }
 
 # Twig Configuration
 twig:
@@ -65,5 +66,19 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
     
-## Security Configuration
- 
+## Security Configuration   
+fos_user :
+       db_driver : orm # other valid values are 'mongodb' and 'couchdb'
+       firewall_name : main
+       user_class : AppBundle\Entity\User
+       from_email :
+           address: you@example.com
+           sender_name: You
+           
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+
+        # enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts:   [admin]

@@ -9,8 +9,8 @@ _security_logout:
     pattern:  /logout
 
 admin_home:
-    pattern:  /admin/
-    defaults: { _controller: ChildrenChildBundle:Admin:index }
+   pattern:  /admen/
+   defaults: { _controller: ChildrenChildBundle:Admin:index }
 
 
 children_child_homepage:
